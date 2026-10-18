@@ -12,10 +12,7 @@ content:
     type: file
     path: content/works.json
     format: json
-    list:
-      collapsible:
-        collapsed: true
-        summary: "{title}（{year}）"
+    list: true
     fields:
       - name: title
         label: 作品名
