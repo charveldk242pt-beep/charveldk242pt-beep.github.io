@@ -1,0 +1,435 @@
+/* =========================================================
+   基本設定（色や余白はここでまとめて変えられます）
+   ========================================================= */
+:root {
+  --black: #111;
+  --gray-dark: #555;
+  --gray: #999;
+  --gray-light: #e5e5e5;
+  --white: #fff;
+  --gap: 12px;          /* タイル同士のすき間 */
+  --side: 40px;         /* 画面の左右の余白 */
+  --font: "Inter", "Noto Sans JP", system-ui, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  color: var(--black);
+  background: var(--white);
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+/* =========================================================
+   ヘッダー
+   ========================================================= */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px var(--side);
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
+}
+
+.logo {
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-decoration: none;
+}
+
+.nav {
+  display: flex;
+  gap: 28px;
+  font-size: 14px;
+}
+
+.nav a {
+  text-decoration: none;
+  color: var(--gray-dark);
+  transition: color 0.2s;
+}
+
+.nav a:hover {
+  color: var(--black);
+}
+
+/* =========================================================
+   作品一覧（タイル）
+   ========================================================= */
+.works {
+  padding: 16px var(--side) 80px;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  margin-bottom: 24px;
+  font-size: 13px;
+}
+
+.filters button {
+  padding: 2px 0;
+  color: var(--gray);
+  border-bottom: 1px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.filters button:hover {
+  color: var(--black);
+}
+
+.filters button.is-active {
+  color: var(--black);
+  border-color: var(--black);
+}
+
+.grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--gap);
+}
+
+.tile button {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  aspect-ratio: 1 / 1;   /* 正方形のタイル（4 / 3 などに変更可） */
+  overflow: hidden;
+  background: var(--gray-light);
+}
+
+.tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease, filter 0.4s;
+}
+
+/* マウスを乗せたときに作品名を表示 */
+.tile-caption {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 20px;
+  text-align: left;
+  color: var(--white);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tile-caption strong {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.tile-caption span {
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+.tile button:hover img,
+.tile button:focus-visible img {
+  transform: scale(1.04);
+}
+
+.tile button:hover .tile-caption,
+.tile button:focus-visible .tile-caption {
+  opacity: 1;
+}
+
+.tile.is-hidden {
+  display: none;
+}
+
+/* =========================================================
+   About / Contact
+   ========================================================= */
+.about,
+.contact {
+  padding: 80px var(--side);
+  border-top: 1px solid var(--gray-light);
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 24px;
+}
+
+.section-title {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gray);
+}
+
+.about-body {
+  max-width: 620px;
+  font-size: 15px;
+}
+
+.about-body p {
+  margin: 0 0 16px;
+}
+
+.about-name {
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.about-title {
+  display: block;
+  font-size: 13px;
+  color: var(--gray);
+}
+
+.about-skills {
+  font-size: 13px;
+  color: var(--gray-dark);
+}
+
+.contact-mail {
+  font-size: clamp(20px, 4vw, 36px);
+  text-decoration: none;
+  border-bottom: 1px solid var(--black);
+  justify-self: start;
+}
+
+.site-footer {
+  padding: 32px var(--side);
+  font-size: 12px;
+  color: var(--gray);
+}
+
+.site-footer p {
+  margin: 0;
+}
+
+/* =========================================================
+   詳細ウィンドウ（モーダル）
+   ========================================================= */
+.modal {
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: var(--white);
+  color: var(--black);
+}
+
+.modal::backdrop {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.modal[open] {
+  animation: fade-in 0.3s ease;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.modal-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 72px var(--side) 48px;
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.modal-close {
+  position: fixed;
+  top: 16px;
+  right: 24px;
+  width: 44px;
+  height: 44px;
+  font-size: 32px;
+  line-height: 1;
+  z-index: 2;
+}
+
+.modal-media {
+  display: grid;
+  gap: 16px;
+}
+
+.modal-media img {
+  width: 100%;
+  background: var(--gray-light);
+}
+
+.modal-info {
+  position: sticky;
+  top: 72px;
+}
+
+.modal-meta {
+  margin: 0 0 8px;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  color: var(--gray);
+}
+
+.modal-title {
+  margin: 0 0 24px;
+  font-size: 26px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.modal-desc,
+.about-text {
+  white-space: pre-line;  /* 改行をそのまま表示 */
+}
+
+.modal-desc {
+  margin: 0 0 32px;
+  font-size: 14px;
+}
+
+.modal-details {
+  margin: 0;
+  font-size: 13px;
+  border-top: 1px solid var(--gray-light);
+}
+
+.modal-details div {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--gray-light);
+}
+
+.modal-details dt {
+  color: var(--gray);
+}
+
+.modal-details dd {
+  margin: 0;
+}
+
+.modal-nav {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 24px;
+  border-top: 1px solid var(--gray-light);
+  font-size: 13px;
+}
+
+.modal-nav button {
+  padding: 8px 0;
+  color: var(--gray-dark);
+}
+
+.modal-nav button:hover {
+  color: var(--black);
+}
+
+body.is-locked {
+  overflow: hidden;
+}
+
+/* =========================================================
+   タブレット・スマホ向け
+   ========================================================= */
+@media (max-width: 900px) {
+  :root {
+    --side: 24px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .modal-inner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .modal-info {
+    position: static;
+  }
+}
+
+@media (max-width: 560px) {
+  :root {
+    --side: 16px;
+    --gap: 8px;
+  }
+
+  .site-header {
+    padding: 18px var(--side);
+  }
+
+  .nav {
+    gap: 16px;
+  }
+
+  .about,
+  .contact {
+    grid-template-columns: 1fr;
+    padding: 56px var(--side);
+  }
+
+  /* スマホはマウスを乗せられないので作品名を常に表示 */
+  .tile-caption {
+    opacity: 1;
+    padding: 12px;
+  }
+
+  .tile-caption strong {
+    font-size: 13px;
+  }
+}
+
+.load-error {
+  grid-column: 1 / -1;
+  padding: 40px 0;
+  color: var(--gray);
+}

@@ -1,0 +1,76 @@
+# Pages CMS の設定ファイル（https://pagescms.org）
+# 管理画面に表示される入力欄をここで決めています。
+
+media:
+  input: images
+  output: images
+  categories: [image]
+
+content:
+  - name: works
+    label: 作品
+    type: file
+    path: content/works.json
+    format: json
+    list:
+      collapsible:
+        collapsed: true
+        summary: "{title}（{year}）"
+    fields:
+      - name: title
+        label: 作品名
+        type: string
+        required: true
+      - name: category
+        label: 分類（例：Branding / Poster / Editorial）
+        type: string
+        required: true
+      - name: year
+        label: 制作年
+        type: number
+      - name: thumbnail
+        label: 一覧に表示する画像
+        type: image
+        required: true
+      - name: images
+        label: 詳細に表示する画像（複数可）
+        type: image
+        options:
+          multiple:
+            max: 20
+      - name: description
+        label: 説明文
+        type: text
+      - name: details
+        label: その他の情報（Client、Role など）
+        type: object
+        list: true
+        fields:
+          - name: label
+            label: 項目名
+            type: string
+          - name: value
+            label: 内容
+            type: string
+
+  - name: site
+    label: プロフィール
+    type: file
+    path: content/site.json
+    format: json
+    fields:
+      - name: name
+        label: 名前
+        type: string
+      - name: title
+        label: 肩書き
+        type: string
+      - name: about
+        label: 自己紹介文
+        type: text
+      - name: skills
+        label: 得意分野
+        type: string
+      - name: email
+        label: メールアドレス
+        type: string

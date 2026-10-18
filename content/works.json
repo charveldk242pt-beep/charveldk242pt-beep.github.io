@@ -1,0 +1,104 @@
+[
+  {
+    "title": "Monochrome Coffee",
+    "category": "Branding",
+    "year": 2026,
+    "thumbnail": "images/work-01.svg",
+    "images": ["images/work-01.svg", "images/work-02.svg"],
+    "description": "小さな自家焙煎コーヒー店のブランディング。ロゴ、ショップカード、パッケージまでを一貫したトーンでデザインしました。",
+    "details": [
+      { "label": "Client", "value": "Monochrome Coffee" },
+      { "label": "Role", "value": "Art Direction / Logo / Package" }
+    ]
+  },
+  {
+    "title": "Exhibition Poster",
+    "category": "Poster",
+    "year": 2026,
+    "thumbnail": "images/work-02.svg",
+    "images": ["images/work-02.svg"],
+    "description": "写真展の告知ポスター。余白とタイポグラフィだけで静けさを表現しています。",
+    "details": [
+      { "label": "Client", "value": "Gallery Shiro" },
+      { "label": "Size", "value": "B1" }
+    ]
+  },
+  {
+    "title": "Book Cover Series",
+    "category": "Editorial",
+    "year": 2025,
+    "thumbnail": "images/work-03.svg",
+    "images": ["images/work-03.svg", "images/work-04.svg"],
+    "description": "短編小説シリーズの装丁。全5冊を共通のグリッドで設計し、並べたときの統一感を重視しました。",
+    "details": [
+      { "label": "Client", "value": "Publisher" },
+      { "label": "Role", "value": "Book Design" }
+    ]
+  },
+  {
+    "title": "Type Study",
+    "category": "Personal",
+    "year": 2025,
+    "thumbnail": "images/work-04.svg",
+    "images": ["images/work-04.svg"],
+    "description": "欧文書体の形をテーマにした個人制作。",
+    "details": []
+  },
+  {
+    "title": "Tea Package",
+    "category": "Package",
+    "year": 2025,
+    "thumbnail": "images/work-05.svg",
+    "images": ["images/work-05.svg"],
+    "description": "日本茶ブランドのパッケージ。和紙の質感を活かすため、印刷は墨一色に絞りました。",
+    "details": [
+      { "label": "Client", "value": "Tea Brand" },
+      { "label": "Role", "value": "Package Design" }
+    ]
+  },
+  {
+    "title": "Architect Office Logo",
+    "category": "Branding",
+    "year": 2024,
+    "thumbnail": "images/work-06.svg",
+    "images": ["images/work-06.svg"],
+    "description": "建築設計事務所のロゴとVI。直線と正方形を基本要素に構成しています。",
+    "details": [
+      { "label": "Client", "value": "Architect Office" },
+      { "label": "Role", "value": "Logo / VI" }
+    ]
+  },
+  {
+    "title": "Music Festival",
+    "category": "Poster",
+    "year": 2024,
+    "thumbnail": "images/work-07.svg",
+    "images": ["images/work-07.svg"],
+    "description": "野外音楽フェスのメインビジュアル。音のリズムを幾何学的なパターンで表現しました。",
+    "details": [
+      { "label": "Client", "value": "Festival Committee" },
+      { "label": "Size", "value": "B2 / Web" }
+    ]
+  },
+  {
+    "title": "Magazine Layout",
+    "category": "Editorial",
+    "year": 2024,
+    "thumbnail": "images/work-08.svg",
+    "images": ["images/work-08.svg"],
+    "description": "カルチャー誌の特集ページのレイアウト。",
+    "details": [
+      { "label": "Client", "value": "Magazine" },
+      { "label": "Role", "value": "Editorial Design" }
+    ]
+  },
+  {
+    "title": "Pattern Works",
+    "category": "Personal",
+    "year": 2023,
+    "thumbnail": "images/work-09.svg",
+    "images": ["images/work-09.svg"],
+    "description": "モノクロのパターンを毎日1つ制作する個人プロジェクト。",
+    "details": []
+  }
+]
